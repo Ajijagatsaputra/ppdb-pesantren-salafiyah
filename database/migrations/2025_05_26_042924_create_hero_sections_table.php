@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('background_image')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
-            $table->string('vidios')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hero_sections');
+        Schema::dropIfExists('hero_sections');  
     }
 };
