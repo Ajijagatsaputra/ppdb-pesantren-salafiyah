@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('icon')->default('bi bi-book-half');
-            $table->integer('sort_order')->default(0);
+            $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
