@@ -1,4 +1,4 @@
-<section id="ekstrakulikuler" class="portfolio section">
+{{-- <section id="ekstrakulikuler" class="portfolio section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -107,4 +107,55 @@
 
             </div>
 
+        </section><!-- /Ekstrakulikuler Section --> --}}
+
+        <section id="ekstrakulikuler" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Ekstrakulikuler</h2>
+                <p>Kegiatan Ekstrakulikuler</p>
+            </div><!-- End Section Title -->
+        
+            <div class="container">
+        
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-hadroh">Hadroh</li>
+                        <li data-filter=".filter-tilawatil-quran">Seni Baca Al-Qur'an</li>
+                        <li data-filter=".filter-ziarah">Ziarah & Wisata Religi</li>
+                        <li data-filter=".filter-marching-band">Marching Band</li>
+                        <li data-filter=".filter-pramuka">Pramuka</li>
+                    </ul><!-- End Portfolio Filters -->
+        
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                        @if ($data && $data->count())
+                            @foreach ($data as $ektra)
+                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($ektra->kategori) }}">
+                                    <div class="portfolio-content h-100">
+                                        <img src="{{ Storage::url($ektra->gambar) }}" class="img-fluid" alt="">
+                                        <div class="portfolio-info">
+                                            <h4>{{ $ektra->kategori }}</h4>
+                                            <p>{{ $ektra->deskripsi }}</p>
+                                            <a href="{{ Storage::url($ektra->gambar) }}" title="App 1"
+                                                data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                                    class="bi bi-zoom-in"></i></a>
+                                            <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                                    class="bi bi-link-45deg"></i></a>
+                                        </div>
+                                    </div>
+                                </div><!-- End Portfolio Item -->
+                            @endforeach
+                        @else
+                            <p class="text-center">Belum ada program yang tersedia.</p>
+                        @endif
+                    </div><!-- End Portfolio Container -->
+        
+                </div>
+        
+            </div>
+        
         </section><!-- /Ekstrakulikuler Section -->
+        

@@ -1,18 +1,25 @@
-        <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
+        @if ($data)
+            <section id="hero" class="hero section dark-background">
 
-            <img src="{{ asset('frontend/assets/img/Hero_Pesantren_Salafiyah_Kauman.jpg') }}" alt=""
-                data-aos="fade-in">
+                <img src="{{ Storage::url($data->background_image) }}" alt="" data-aos="fade-in">
 
-            <div class="container d-flex flex-column align-items-center">
-                <h2 data-aos="fade-up" data-aos-delay="100">"SALAFIYAH"</h2>
-                <p data-aos="fade-up" data-aos-delay="200">"PONDOK PESANTREN KAUMAN PEMALANG"</p>
-                <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/form-pendaftaran" class="btn-get-started">Ayo Daftar</a>
-                    <a href="https://youtu.be/ShKL_kCaAXs?si=poWUX5lCFAf2MYd3"
-                        class="glightbox btn-watch-video d-flex align-items-center"><i
-                            class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                <div class="container d-flex flex-column align-items-center">
+                    <h2 data-aos="fade-up" data-aos-delay="100">{{ $data->title }}</h2>
+                    @if ($data->subtitle)
+                        <p data-aos="fade-up" data-aos-delay="200">{{ $data->subtitle }}</p>
+                    @endif
+                    @if ($data->description)
+                        <p class="hero-description">{{ $data->description }}</p>
+                    @endif
+                    <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+                        @if ($data->button_text && $data->button_link)
+                            <a href="{{ $data->button_link }}" class="btn-get-started">{{ $data->button_text }}</a>
+                        @endif
+                        @if ($data->button_text && $data->button_link)
+                            <a href="{{ $data->vidios }}" class="glightbox btn-watch-video d-flex align-items-center">
+                                <i class="bi bi-play-circle"></i>{{ $data->button_text_vidio }}</a>
+                        @endif
+                    </div>
                 </div>
-            </div>
-
-        </section><!-- /Hero Section -->
+            </section>
+        @endif
